@@ -78,15 +78,16 @@ class Rabbit(Process):
 	_field = None
 	_pos = ()
 	name = ""
-	_carrots = 0
-	carrots = Value('i',_carrots)
+	#_carrots = 0
+	#carrots = Value('i',_carrots)
 
-	def __init__(self, name, field, pos):
+	def __init__(self, name, field, pos, carrots):
 		print "Placing rabbit: %s to location [%d,%d]" % (name, pos[0], pos[1])
 		self._field = field;
 		self._pos = pos;
 		self.name = name;
 		self.moves = 0;
+		self.carrots = carrots
 		Process.__init__(self)
 		
 		
@@ -127,7 +128,8 @@ class RabbitFun:
 		field.start()
 		start = int(time.time())+1
 		for name in self._names:
-			self._rabbits.append(Rabbit(name, field, (random.randint(0,self._map_size-1), random.randint(0,self._map_size-1))))
+			#self._carrot_bins.append(bin)
+			self._rabbits.append(Rabbit(name, field, (random.randint(0,self._map_size-1), random.randint(0,self._map_size-1)), Value('d',0)))
 		
 		for rabbit in self._rabbits:
 			rabbit.start()

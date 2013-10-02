@@ -1,16 +1,16 @@
 import sys, random, time
-import threading
+from threading import Thread, Lock, Event, Condition
 import urllib, urllib2, re
 
-game_over_event = threading.Event()
-start_condition = threading.Condition()
+game_over_event = Event()
+start_condition = Condition()
 game_over_event.clear()
 
-class Field(threading.Thread):
+class Field(Thread):
 	_carrot_map = {}
 	_size = 0
-	_lock = threading.Lock()
-	_carrot_condition = threading.Condition()
+	_lock = Lock()
+	_carrot_condition = Condition()
   
 	def __init__(self, size):
 		self._size = size
@@ -18,7 +18,7 @@ class Field(threading.Thread):
 		self._carrot_map = [( 1 if random.randrange(10) > 7 else 0) for i in range(size*size)]
 		print self._carrot_map
 		print "Map size: %dx%d, carrots: %d" % (size, size, self.getCarrotCount())
-		threading.Thread.__init__(self)
+		Thread.__init__(self)
 		
 	def eatCarrot(self, pos):
 		index = pos[0] * self._size + pos[1]
@@ -33,7 +33,7 @@ class Field(threading.Thread):
 			self._lock.release()
 			
 			self._carrot_condition.acquire()
-			self._carrot_condition.notifyAll()
+			self._carrot_condition.notify()
 			self._carrot_condition.release()
 			return 1
 		
@@ -69,12 +69,11 @@ class Field(threading.Thread):
 		game_over_event.set()
 		#print "game_over_event set"
 
-class Rabbit(threading.Thread):
+class Rabbit(Thread):
 	_field = None
 	_pos = ()
 	name = ""
 	carrots = 0
-	_start_time = 0
 
 	def __init__(self, name, field, pos):
 		print "Placing rabbit: %s to location [%d,%d]" % (name, pos[0], pos[1])
@@ -82,7 +81,7 @@ class Rabbit(threading.Thread):
 		self._pos = pos;
 		self.name = name;
 		self.moves = 0;
-		threading.Thread.__init__(self)
+		Thread.__init__(self)
 		
 
 	def run(self):
@@ -138,7 +137,7 @@ class RabbitFun:
 			print "attempting to close threads"
 			game_over_event.set()
 			print "threads successfully closed"
-        
+
 		for rabbit in self._rabbits:
 			rabbit.join()
 		print "rabbits joined"

@@ -23,7 +23,7 @@ class Field extends Thread  {
 		echo "Map size: {$size}x{$size}, carrots: {$this->getCarrotCount()}".PHP_EOL;
 	}
 	
-	protected function eatCarrot($pos) {
+	public function eatCarrot($pos) {
 		$index = $pos[0] * $this->size + $pos[1];
 		//echo "Eat carrot @ {$index} {$this->carrot_map[$index]}".PHP_EOL;
 		// somehow $this->carrot_map[$index] = false; does nothing
