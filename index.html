@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://rawgithub.com/timheap/jquery-xmlrpc/master/jquery.xmlrpc.min.js"></script>
+	<script type="text/javascript" src="https://rawgithub.com/hongymagic/jQuery.serializeObject/master/dist/jquery.serializeObject.min.js"></script>
+	
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/base-min.css">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+
+	<style type="text/css">
+		body {
+			margin:10px;
+		}
+	</style>
+	<script>
+	/*
+	$.xmlrpc({
+		url: '/runningrabbits_rpc',
+		methodName: 'getGameState',
+		params: ["aaaa"],
+		success: function(response, status, jqXHR) { 
+			console.log(response, status);
+		},
+		error: function(jqXHR, status, error) { console.log(error, status);}
+	});
+	*/
+	var refreshTimeout = null;
+	function refreshGames() {
+		var $tbody = $("#pending tbody");
+		$tbody.html('');
+		var isRunning = false;
+		clearTimeout(refreshTimeout);
+		$.xmlrpc({
+			url: '/runningrabbits_rpc',
+			methodName: 'getRunningGames',
+			success: function(response, status, jqXHR) { 
+				console.log(response, status);
+				for (var i in response[0]) {
+					console.log(response[0][i]);
+					with(response[0][i]) {
+						isRunning |= ! (status == "created" || status == "finished");
+						$tbody.append("<tr><td>"+name+"</td><td>"+map_size+"x"+map_size+"</td><td>"+rabbits.join(', ')+"</td><td>"+status+"</td><td>"+info+"</td><td>"+(status=="created" ? "<input type='button' name='start' data-name='"+name+"' value='start' >":" ")+"</td></tr>");
+					}
+				}
+				if (isRunning) {
+					setTimeout('refreshGames()', 1000);
+				}
+			},
+			error: function(jqXHR, status, error) { console.log(error, status);}
+		});
+	}
+	$(function() {
+		$("input[name='start']").live('click', function(e){
+			var $name = $(this).data("name");
+			$.xmlrpc({
+				url: '/runningrabbits_rpc',
+				methodName: 'startGame',
+				params: [$name], 
+				success: function(response, status, jqXHR) { 
+					refreshGames();
+				},
+				error: function(jqXHR, status, error) { 
+					alert(error);
+				}
+			});
+		});
+		$("#create").submit(function(e){
+			e.preventDefault();
+			console.log($(this).serializeObject());
+			$.xmlrpc({
+				url: '/runningrabbits_rpc',
+				methodName: 'createGame',
+				params: $(this).serializeObject(), 
+				success: function(response, status, jqXHR) { 
+					refreshGames();
+				},
+				error: function(jqXHR, status, error) { 
+					alert(error);
+				}
+			});
+		});
+	});
+	</script>
+<title>Play Running Rabbits game</title>
+</head>
+<body onload="refreshGames();">
+			
+
+   <div class="pure-g">
+    <div class="pure-u-1-2">
+	<h2>Current Games:</h2> 
+	<table id="pending" class="pure-table" width="90%">
+		<colgroup>
+		   <col span="1" style="width: 15%;">
+		   <col span="1" style="width: 6%;">
+		   <col span="1" style="width: 34%;">
+		   <col span="1" style="width: 15%;">
+		   <col span="1" style="width: 20%;">
+		   <col span="1" style="width: 10%;">
+		</colgroup>
+	
+		<thead>
+		<tr>
+			<th>name</th>
+			<th>size</th>
+			<th>rabbits</th>
+			<th>status</th>
+			<th>info</th>
+			<th>&nbsp;</th>
+		</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table><br>
+	</div>
+	<div class="pure-u-1-2">
+	<form id="create" class="pure-form pure-form-stacked">
+	<fieldset>
+		<legend>Create new game</legend>
+		<label>Field name:</label><input name="name" type="text" value="" size="10">
+		<label>Field size:</label><input name="map_size" type="text" value="3" size="4">
+		<label># rabbits:</label><input name="rabbits" type="text" value="3" size="4">
+		<input type="submit" value="Create">
+	</fieldset>
+	</form>
+	</div>
+  </div>
+</div></body>
+</html>
+
