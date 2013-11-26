@@ -1,0 +1,21 @@
+C:\PDC2008\Microsoft.ServiceModel.Samples.XmlRpc\Microsoft.ServiceModel.XmlRpc\bin\Debug\Microsoft.ServiceModel.Samples.XmlRpc.dll
+C:\PDC2008\Microsoft.ServiceModel.Samples.XmlRpc\Microsoft.ServiceModel.XmlRpc\bin\Debug\Microsoft.ServiceModel.Samples.XmlRpc.pdb
+C:\PDC2008\Microsoft.ServiceModel.Samples.XmlRpc\Microsoft.ServiceModel.XmlRpc\obj\Debug\ResolveAssemblyReference.cache
+C:\PDC2008\Microsoft.ServiceModel.Samples.XmlRpc\Microsoft.ServiceModel.XmlRpc\obj\Debug\Microsoft.ServiceModel.Samples.XmlRpc.Properties.Resources.resources
+C:\PDC2008\Microsoft.ServiceModel.Samples.XmlRpc\Microsoft.ServiceModel.XmlRpc\obj\Debug\Microsoft.Samples.XmlRpc.csproj.GenerateResource.Cache
+C:\PDC2008\Microsoft.ServiceModel.Samples.XmlRpc\Microsoft.ServiceModel.XmlRpc\obj\Debug\Microsoft.ServiceModel.Samples.XmlRpc.dll
+C:\PDC2008\Microsoft.ServiceModel.Samples.XmlRpc\Microsoft.ServiceModel.XmlRpc\obj\Debug\Microsoft.ServiceModel.Samples.XmlRpc.pdb
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\XmlRpcForWCF\Microsoft.Samples.XmlRpc\obj\Debug\Microsoft.Samples.XmlRpc.csprojResolveAssemblyReference.cache
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\XmlRpcForWCF\Microsoft.Samples.XmlRpc\obj\Debug\Microsoft.Samples.XmlRpc.Properties.Resources.resources
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\XmlRpcForWCF\Microsoft.Samples.XmlRpc\obj\Debug\Microsoft.Samples.XmlRpc.csproj.GenerateResource.Cache
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\XmlRpcForWCF\Microsoft.Samples.XmlRpc\bin\Debug\Microsoft.Samples.XmlRpc.dll
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\XmlRpcForWCF\Microsoft.Samples.XmlRpc\bin\Debug\Microsoft.Samples.XmlRpc.pdb
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\XmlRpcForWCF\Microsoft.Samples.XmlRpc\obj\Debug\Microsoft.Samples.XmlRpc.dll
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\XmlRpcForWCF\Microsoft.Samples.XmlRpc\obj\Debug\Microsoft.Samples.XmlRpc.pdb
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\RabbitFunViewer\Microsoft.Samples.XmlRpc\bin\Debug\Microsoft.Samples.XmlRpc.dll
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\RabbitFunViewer\Microsoft.Samples.XmlRpc\bin\Debug\Microsoft.Samples.XmlRpc.pdb
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\RabbitFunViewer\Microsoft.Samples.XmlRpc\obj\Debug\Microsoft.Samples.XmlRpc.csprojResolveAssemblyReference.cache
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\RabbitFunViewer\Microsoft.Samples.XmlRpc\obj\Debug\Microsoft.Samples.XmlRpc.Properties.Resources.resources
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\RabbitFunViewer\Microsoft.Samples.XmlRpc\obj\Debug\Microsoft.Samples.XmlRpc.csproj.GenerateResource.Cache
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\RabbitFunViewer\Microsoft.Samples.XmlRpc\obj\Debug\Microsoft.Samples.XmlRpc.dll
+J:\Dropbox\private\Andres\kool\2013_fall\distributed systems\runningrabbits\RabbitFunViewer\Microsoft.Samples.XmlRpc\obj\Debug\Microsoft.Samples.XmlRpc.pdb

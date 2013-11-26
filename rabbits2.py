@@ -128,16 +128,11 @@ class RabbitFun:
 		field.start()
 		start = int(time.time())+1
 		for name in self._names:
-			#self._carrot_bins.append(bin)
 			self._rabbits.append(Rabbit(name, field, (random.randint(0,self._map_size-1), random.randint(0,self._map_size-1)), Value('d',0)))
 		
 		for rabbit in self._rabbits:
 			rabbit.start()
 
-		#start_condition.acquire()
-		#start_condition.notify()
-		#start_condition.release()
-    
 		try:
 			while not game_over_event.is_set():
 				time.sleep(.1)
@@ -156,7 +151,7 @@ class RabbitFun:
 
 		print "Top:"
 		for rabbit in winners:
-			print "#%d: %s ate %d carrots!" % (0, rabbit.name, rabbit.carrots.value), rabbit.carrots
+			print "#%d: %s ate %d carrots!" % (0, rabbit.name, rabbit.carrots.value)
 		
 	
 	def generateNames(self, count):

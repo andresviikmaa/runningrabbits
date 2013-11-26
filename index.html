@@ -15,6 +15,7 @@
 		}
 	</style>
 	<script>
+		
 	/*
 	$.xmlrpc({
 		url: '/runningrabbits_rpc',
@@ -45,10 +46,10 @@
 					}
 				}
 				if (isRunning) {
-					setTimeout('refreshGames()', 1000);
+					refreshTimeout = setTimeout('refreshGames()', 1000);
 				}
 			},
-			error: function(jqXHR, status, error) { console.log(error, status);}
+			error: function(jqXHR, status, error) { alert(error);}
 		});
 	}
 	$(function() {
@@ -86,7 +87,14 @@
 <title>Play Running Rabbits game</title>
 </head>
 <body onload="refreshGames();">
-			
+	
+	<form id="connection" class="pure-form pure-form">
+	<fieldset>
+		<legend>Connection Details</legend>
+		<label>Server address:</label>&nbsp;&nbsp;<input name="server" type="text" value="http://b35729.zed.ee/runningrabbits_rpc" size="50">
+		<input type="submit" value="Update">
+	</fieldset>
+	</form>	
 
    <div class="pure-g">
     <div class="pure-u-1-2">

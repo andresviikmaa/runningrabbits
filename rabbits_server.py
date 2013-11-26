@@ -35,6 +35,6 @@ class RabbitRPC:
 		
 	
 server.register_instance(RabbitRPC())
-
+server.register_introspection_functions()
 # Run the server's main loop
 server.serve_forever()
